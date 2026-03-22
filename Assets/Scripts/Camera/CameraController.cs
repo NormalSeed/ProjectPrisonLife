@@ -6,7 +6,6 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform target;
 
     [Header("Follow Settings")]
-    [SerializeField] private float smoothSpeed = 5f;
     [SerializeField] private float distance = 15f;
 
     [Header("Angle Settings")]
@@ -40,7 +39,6 @@ public class CameraController : MonoBehaviour
     {
         if (target == null) return;
 
-        Vector3 desiredPosition = target.position + offset;
-        transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        transform.position = target.position + offset;
     }
 }
